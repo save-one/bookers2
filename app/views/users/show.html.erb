@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<h2>User info</h2>
+			<%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+			<table class="table">
+				<tbody>
+					<tr><td>name</td><td>ss</td></tr>
+					<tr><td>introduction</td><td>123</td>
+				</tbody>
+			</table>
+			<%= link_to "edit", edit_user_path %>
+			<h2>New book</h2>
+			<%= form_for(@book) do |f| %>
+			<h5>Title</h5>
+			<%= f.text_field :title %>
+			<h5>Opinion</h5>
+			<%= f.text_area :opinion %>
+			<%= f.submit "Create Book" %>
+			<% end %>
+		</div>
+		<div class="col-sm-9">
+			<h2>Books</h2>
+			<table class="table">
+				<thead>
+					<tr><th>img</th><th>Title</th><th>Opinion</th></tr>
+				</thead>
+				<tbody>
+					<% @books.each do |book| %>
+					<tr><td></td><td><%= book.title %></td><td><%= book.opinion %></td></tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
