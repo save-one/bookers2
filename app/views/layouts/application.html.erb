@@ -9,6 +9,51 @@
   </head>
 
   <body>
+<div class="header">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" style="color:white;" href="#">Bookers</a>
+			</div>
+  		<ul class="nav navbar-nav navbar-right">
+  			<% if user_signed_in? %>
+  			<li>
+  				<a href="#"><i class="glyphicon glyphicon-home"></i>Home</a>
+  			</li>
+  			<li>
+  				<a href="#"><i class="glyphicon glyphicon-user"></i>Users</a>
+  			</li>
+  			<li>
+  				<a href="#"><i class="glyphicon glyphicon-book"></i>Books</a>
+  			</li>
+  			<li>
+  				<a href="#"><i class="glyphicon glyphicon-log-in"></i>logout</a>
+  			</li>
+  			<% else %>
+  			<li>
+  				<a href="#"><i class="glyphicon glyphicon-home"></i>Home</a>
+  			</li>
+  			<li>
+  				<a href="#"><i class="glyphicon glyphicon-link"></i>About</a>
+  			</li>
+  			<li>
+  				<a href="#"><i class="glyphicon glyphicon-edit"></i>sign up</a>
+  			</li>
+  			<li>
+  				<a href="#"><i class="glyphicon glyphicon-log-in"></i>login</a>
+  			</li>
+  			<% end %>
+  		</ul>
+  	</div>
+	</nav>
+</div>
+
     <%= yield %>
+
+<div class="footer">
+  <div class="container">
+    <p class="">CopyRight Infratop.inc</p>
+  </div>
+</div>
   </body>
 </html>
