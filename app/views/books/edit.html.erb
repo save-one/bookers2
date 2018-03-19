@@ -1,0 +1,17 @@
+<% if @books.user == current_user %>
+
+<h1>Editing Book</h1>
+<%= form_for(@books) do |f| %>
+<h5>Title</h5>
+<%= f.text_field :title %>
+<h5>Opinion</h5>
+<%= f.text_area :opinion %>
+<%= f.submit "Update Book" %>
+<% end %>
+<%= link_to "Show", book_path %>
+|
+<%= link_to "Back", books_path %>
+
+<% else %>
+
+<% end %>

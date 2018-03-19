@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
+  get 'roots/index'
+
+  root to: 'roots#index'
+
+  get '/roots/about', to: 'roots#about', as: 'about'
 
   devise_for :users
 
-  resources :books, only: [:new, :create, :index, :show ]
+  resources :books, only: [:create, :index, :show, :edit, :update, :destroy]
 
-  resources :users, only: [:show, :update, :edit]
+  resources :users, only: [:index, :show, :update, :edit]
 
-  root 'books#index'
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

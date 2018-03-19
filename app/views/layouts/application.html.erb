@@ -18,35 +18,41 @@
   		<ul class="nav navbar-nav navbar-right">
   			<% if user_signed_in? %>
   			<li>
-  				<a href="#"><i class="glyphicon glyphicon-home"></i>Home</a>
+          <%= link_to "  Home", user_path(current_user), class: "glyphicon glyphicon-home" %>
   			</li>
   			<li>
-  				<a href="#"><i class="glyphicon glyphicon-user"></i>Users</a>
+          <%= link_to "  Users", users_path, class: "glyphicon glyphicon-user" %>
   			</li>
   			<li>
-  				<a href="#"><i class="glyphicon glyphicon-book"></i>Books</a>
+          <%= link_to "  Books", books_path, class: "glyphicon glyphicon-book" %>
   			</li>
   			<li>
-  				<a href="#"><i class="glyphicon glyphicon-log-in"></i>logout</a>
+          <%= link_to "  logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %>
   			</li>
   			<% else %>
   			<li>
-  				<a href="#"><i class="glyphicon glyphicon-home"></i>Home</a>
+          <%= link_to "  Home", root_path, class: "glyphicon glyphicon-home" %>
   			</li>
   			<li>
-  				<a href="#"><i class="glyphicon glyphicon-link"></i>About</a>
+          <%= link_to "  About", about_path, class: "glyphicon glyphicon-link" %>
   			</li>
   			<li>
-  				<a href="#"><i class="glyphicon glyphicon-edit"></i>sign up</a>
+          <%= link_to "  sign up", new_user_registration_path, class: "glyphicon glyphicon-edit" %>
   			</li>
   			<li>
-  				<a href="#"><i class="glyphicon glyphicon-log-in"></i>login</a>
+          <%= link_to "  login", new_user_session_path, class: "glyphicon glyphicon-log-in" %>
   			</li>
   			<% end %>
   		</ul>
   	</div>
 	</nav>
 </div>
+
+<% if flash[:notice] %>
+<div class="alert alert-success">
+  <%= flash[:notice] %>
+</div>
+<% end %>
 
     <%= yield %>
 
