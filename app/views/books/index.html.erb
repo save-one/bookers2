@@ -1,25 +1,24 @@
-<div class="container">
-	<div class="row">
-		<div class="col-sm-3">
+<div class= "container top">
+	<div class="row top">
+		<div class="col-sm-3  top">
 			<h2>User info</h2>
 			<%= attachment_image_tag current_user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
 			<table class="table">
+				<div  class="row">
 				<tbody>
-					<tr><td>name</td><td><%= current_user.name %></td></tr>
-					<tr><td>introduction</td><td><%= current_user.introduction %></td></tr>
+					<tr><td class="labels col-xs-4">name</td><td class="labels col-xs-8"><%= current_user.name %></td></tr>
+					<tr><td class="labels col-xs-4">introduction</td><td class="labels col-xs-8"><%= current_user.introduction %></td></tr>
 				</tbody>
+				</div>
 			</table>
-			<%= link_to "edit", edit_user_path(current_user.id) %>
-			<h2>New book</h2>
-			<%= form_for(@book) do |f| %>
-			<h5>Title</h5>
-			<%= f.text_field :title %>
-			<h5>Opinion</h5>
-			<%= f.text_area :opinion %>
-			<%= f.submit "Create Book" %>
-			<% end %>
-		</div>
-		<div class="col-sm-9">
+			<div class="row">
+			<%= link_to "", edit_user_path(current_user.id), class: "btn btn-default btn-block glyphicon glyphicon-wrench" %>
+			</div>
+
+
+<%= render 'users/list', book: @book %>
+
+		<div class="col-sm-9 top">
 			<h2>Books</h2>
 			<table class="table">
 				<thead>
